@@ -1,0 +1,12 @@
+{
+  "locale": "qxp",
+  "initial_rows": 7305,
+  "disfluency_applied": false,
+  "disfluency_affected_rows": 0,
+  "splitting_applied": true,
+  "splitting_warnings": [],
+  "quality_tagging_applied": true,
+  "problem_clips": [],
+  "problem_clip_count": 8,
+  "final_rows": 7305
+}

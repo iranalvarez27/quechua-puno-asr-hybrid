@@ -1,0 +1,17 @@
+python make_split.py --input scripted-qxp/curated_by_elwin.tsv --output_dir scripted-qxp/splits --train_ratio 0.8 --dev_ratio 0.10 --test_ratio 0.10
+Creating output directory...
+Corpus: 30.49 h, 22727 clips, 77 speakers
+
+--- Repartition (duration / clips / speakers) ---
+       duration_h  n_clips  n_speakers  pct_duree
+split                                            
+train       27.80    20870          35       91.2
+dev          1.35      948          21        4.4
+test         1.35      909          21        4.4 
+
+--- Duration (h) by split x gender ---
+gender  female_feminine  male_masculine
+split                                  
+dev                1.27            0.07
+test               1.28            0.07
+train             21.06            6.74 

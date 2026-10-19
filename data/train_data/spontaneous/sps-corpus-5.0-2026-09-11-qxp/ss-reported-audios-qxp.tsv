@@ -1,0 +1,4 @@
+client_id	audio_id	audio_file	duration_ms	prompt_id	prompt	reason	comment	language
+9b65f1e9eb5c4295de5a534c2114c193	68587	spontaneous-speech-qxp-68587.mp3	18936	7262	Imaynatan aylluykipi sasachakuykunata allichankichis?	other	Audio is not correct	Puno Quechua
+9b65f1e9eb5c4295de5a534c2114c193	68587	spontaneous-speech-qxp-68587.mp3	18936	7262	Imaynatan aylluykipi sasachakuykunata allichankichis?	other	Corrupted audio.	Puno Quechua
+9b65f1e9eb5c4295de5a534c2114c193	68587	spontaneous-speech-qxp-68587.mp3	18936	7262	Imaynatan aylluykipi sasachakuykunata allichankichis?	different_language	the audio is in the really background.	Puno Quechua

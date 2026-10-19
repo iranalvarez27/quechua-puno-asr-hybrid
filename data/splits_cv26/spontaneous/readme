@@ -1,0 +1,17 @@
+# SPLIT 80/10/10 (seed=4)
+python make_split.py --input spontaneous-qxp/spontaneous_corpus_all.tsv --output_dir spontaneous-qxp/splits --train_ratio 0.8 --dev_ratio 0.10 --test_ratio 0.10
+Corpus: 29.93 h, 7023 clips, 110 speakers (validated only)
+
+--- Repartition (duration / clips / speakers) ---
+       duration_h  n_clips  n_speakers  pct_duree
+split                                            
+train       26.17     5902          64       87.5
+dev          1.87      575          24        6.3
+test         1.88      546          22        6.3 
+
+--- Duration (h) by split x gender ---
+gender  female_feminine  male_masculine
+split                                  
+dev                1.77            0.11
+test               1.77            0.11
+train             18.14            8.04 

@@ -1,0 +1,342 @@
+{
+  "args": {
+    "cmd": "run",
+    "root": ".",
+    "work": "",
+    "scripted_dir": "",
+    "spont_dir": "",
+    "test_dir": "",
+    "base_model": "facebook/wav2vec2-xls-r-300m",
+    "download_data": false,
+    "recipes": [
+      "validated",
+      "silver_conf",
+      "silver"
+    ],
+    "no_train": false,
+    "route": "",
+    "epochs": 12,
+    "lr": 0.0001,
+    "warmup": 500,
+    "eff_batch": 32,
+    "batch": 0,
+    "seed": 42,
+    "workers": 8,
+    "gold_upsample": 3,
+    "no_curated": false,
+    "no_augment": false,
+    "max_sec": 30.0,
+    "min_sec": 0.5,
+    "vocab_min_count": 20,
+    "dev_eval_subset": 300,
+    "conf_keep": 0.7,
+    "freeze_head_steps": 0,
+    "time_budget_h": 0.0,
+    "lora": false,
+    "lora_r": 32,
+    "smoke": false,
+    "smoke_clips": 48,
+    "smoke_steps": 6,
+    "allow_cpu": false,
+    "online": false,
+    "lm": "eval/kenlm/qxp_4gram.bin",
+    "lm_tune": "eval/kenlm/qxp_tune.bin",
+    "lm_unigrams": "eval/kenlm/corpus.txt",
+    "lm_alpha": [
+      0.5,
+      1.0,
+      1.5
+    ],
+    "lm_beta": [
+      1.0,
+      3.0
+    ],
+    "lm_beam": 100,
+    "lm_unk_offset": -10.0
+  },
+  "choice_by_type": {
+    "scripted": [
+      "validated",
+      "lm"
+    ],
+    "spontaneous": [
+      "silver",
+      "lm"
+    ]
+  },
+  "use_curated_text": true,
+  "vocab": " 'abcdefghijklmnopqrstuvwyzáíñ",
+  "vocab_dropped_rare": {
+    "ú": 2,
+    "ó": 11,
+    "ü": 1,
+    "é": 6,
+    "9": 3,
+    "0": 8,
+    "8": 4,
+    "3": 1,
+    "x": 4,
+    "2": 1,
+    "1": 1
+  },
+  "effective_batch": 32,
+  "precision": "bf16",
+  "data": {
+    "sc_tr": {
+      "clips": 17597,
+      "hours": 23.758860416666664
+    },
+    "sc_dev": {
+      "clips": 2831,
+      "hours": 3.7185679166666663
+    },
+    "sc_te": {
+      "clips": 2299,
+      "hours": 3.0593848524305556
+    },
+    "sp_tr": {
+      "clips": 425,
+      "hours": 1.8728054166666668
+    },
+    "sp_dev": {
+      "clips": 542,
+      "hours": 2.393299166666667
+    },
+    "sp_te": {
+      "clips": 371,
+      "hours": 1.6915929166666668
+    },
+    "silver": {
+      "clips": 2469,
+      "hours": 8.67532375
+    }
+  },
+  "silver_removed_as_eval_clips_or_speakers": 2013,
+  "silver_conf_clips": 1728,
+  "silver_conf_spearman_dev": 0.45358140511461803,
+  "lm_alpha_beta_by_recipe_type": {
+    "validated/leído": [
+      0.5,
+      1.0
+    ],
+    "validated/espontáneo": [
+      0.5,
+      1.0
+    ],
+    "silver_conf/leído": [
+      0.5,
+      1.0
+    ],
+    "silver_conf/espontáneo": [
+      1.0,
+      3.0
+    ],
+    "silver/leído": [
+      0.5,
+      1.0
+    ],
+    "silver/espontáneo": [
+      0.5,
+      1.0
+    ]
+  },
+  "repo_commit": "",
+  "gpu": "NVIDIA GeForce RTX 5070",
+  "torch": "2.11.0+cu128",
+  "transformers": "5.20.1",
+  "python": "3.14.4",
+  "eval": [
+    {
+      "receta": "validated",
+      "decoder": "greedy",
+      "conjunto": "leído/dev",
+      "n": 2831,
+      "WER": 25.109,
+      "CER": 4.399
+    },
+    {
+      "receta": "validated",
+      "decoder": "greedy",
+      "conjunto": "leído/test",
+      "n": 2299,
+      "WER": 13.649,
+      "CER": 1.751
+    },
+    {
+      "receta": "validated",
+      "decoder": "greedy",
+      "conjunto": "espontáneo/dev",
+      "n": 542,
+      "WER": 34.817,
+      "CER": 5.422
+    },
+    {
+      "receta": "validated",
+      "decoder": "greedy",
+      "conjunto": "espontáneo/test",
+      "n": 371,
+      "WER": 26.05,
+      "CER": 3.444
+    },
+    {
+      "receta": "validated",
+      "decoder": "lm",
+      "conjunto": "leído/dev",
+      "n": 2831,
+      "WER": 10.876,
+      "CER": 2.386
+    },
+    {
+      "receta": "validated",
+      "decoder": "lm",
+      "conjunto": "leído/test",
+      "n": 2299,
+      "WER": 1.454,
+      "CER": 0.221
+    },
+    {
+      "receta": "validated",
+      "decoder": "lm",
+      "conjunto": "espontáneo/dev",
+      "n": 542,
+      "WER": 20.42,
+      "CER": 3.521
+    },
+    {
+      "receta": "validated",
+      "decoder": "lm",
+      "conjunto": "espontáneo/test",
+      "n": 371,
+      "WER": 8.792,
+      "CER": 1.253
+    },
+    {
+      "receta": "silver_conf",
+      "decoder": "greedy",
+      "conjunto": "leído/dev",
+      "n": 2831,
+      "WER": 25.467,
+      "CER": 4.367
+    },
+    {
+      "receta": "silver_conf",
+      "decoder": "greedy",
+      "conjunto": "leído/test",
+      "n": 2299,
+      "WER": 13.963,
+      "CER": 1.779
+    },
+    {
+      "receta": "silver_conf",
+      "decoder": "greedy",
+      "conjunto": "espontáneo/dev",
+      "n": 542,
+      "WER": 33.255,
+      "CER": 5.052
+    },
+    {
+      "receta": "silver_conf",
+      "decoder": "greedy",
+      "conjunto": "espontáneo/test",
+      "n": 371,
+      "WER": 25.269,
+      "CER": 3.283
+    },
+    {
+      "receta": "silver_conf",
+      "decoder": "lm",
+      "conjunto": "leído/dev",
+      "n": 2831,
+      "WER": 11.483,
+      "CER": 2.414
+    },
+    {
+      "receta": "silver_conf",
+      "decoder": "lm",
+      "conjunto": "leído/test",
+      "n": 2299,
+      "WER": 1.627,
+      "CER": 0.244
+    },
+    {
+      "receta": "silver_conf",
+      "decoder": "lm",
+      "conjunto": "espontáneo/dev",
+      "n": 542,
+      "WER": 18.429,
+      "CER": 3.147
+    },
+    {
+      "receta": "silver_conf",
+      "decoder": "lm",
+      "conjunto": "espontáneo/test",
+      "n": 371,
+      "WER": 7.066,
+      "CER": 1.01
+    },
+    {
+      "receta": "silver",
+      "decoder": "greedy",
+      "conjunto": "leído/dev",
+      "n": 2831,
+      "WER": 24.815,
+      "CER": 4.301
+    },
+    {
+      "receta": "silver",
+      "decoder": "greedy",
+      "conjunto": "leído/test",
+      "n": 2299,
+      "WER": 13.486,
+      "CER": 1.747
+    },
+    {
+      "receta": "silver",
+      "decoder": "greedy",
+      "conjunto": "espontáneo/dev",
+      "n": 542,
+      "WER": 31.657,
+      "CER": 4.815
+    },
+    {
+      "receta": "silver",
+      "decoder": "greedy",
+      "conjunto": "espontáneo/test",
+      "n": 371,
+      "WER": 24.715,
+      "CER": 3.221
+    },
+    {
+      "receta": "silver",
+      "decoder": "lm",
+      "conjunto": "leído/dev",
+      "n": 2831,
+      "WER": 11.831,
+      "CER": 2.446
+    },
+    {
+      "receta": "silver",
+      "decoder": "lm",
+      "conjunto": "leído/test",
+      "n": 2299,
+      "WER": 1.551,
+      "CER": 0.249
+    },
+    {
+      "receta": "silver",
+      "decoder": "lm",
+      "conjunto": "espontáneo/dev",
+      "n": 542,
+      "WER": 17.249,
+      "CER": 2.952
+    },
+    {
+      "receta": "silver",
+      "decoder": "lm",
+      "conjunto": "espontáneo/test",
+      "n": 371,
+      "WER": 7.017,
+      "CER": 0.997
+    }
+  ]
+}

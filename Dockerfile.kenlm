@@ -1,0 +1,11 @@
+FROM fauxneticien/fairseq-asr
+USER root
+ENV DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        build-essential cmake git libboost-program-options-dev libboost-system-dev \
+        libboost-thread-dev libboost-test-dev libeigen3-dev zlib1g-dev libbz2-dev liblzma-dev \
+    && rm -rf /var/lib/apt/lists/*
+RUN git clone --depth 1 https://github.com/kpu/kenlm.git /opt/kenlm \
+    && cmake -S /opt/kenlm -B /opt/kenlm/build && cmake --build /opt/kenlm/build -j4 \
+    && cp /opt/kenlm/build/bin/lmplz /opt/kenlm/build/bin/build_binary /usr/local/bin/
+RUN pip install --no-cache-dir pyctcdecode jiwer https://github.com/kpu/kenlm/archive/master.zip

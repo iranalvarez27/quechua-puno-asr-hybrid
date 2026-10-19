@@ -1,0 +1,18 @@
+requests
+python-dotenv
+wandb
+
+# Notebook
+jupyter
+ipython
+
+# Audio processing & visualization
+librosa
+matplotlib
+pandas
+numpy
+
+# Data prep (prepare_cv_qxp_data.py)
+torch
+torchaudio
+tqdm
